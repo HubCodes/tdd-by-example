@@ -2,8 +2,7 @@ package com.hubcodes;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class MoneyTest {
 
@@ -34,5 +33,10 @@ public class MoneyTest {
     public void testCurrency() {
         assertEquals("USD", Money.dollar(1).currency());
         assertEquals("CHF", Money.franc(1).currency());
+    }
+
+    @Test
+    public void testDifferentClassEquality() {
+        assertEquals(new Money(10, "CHF"), new Franc(10, "CHF"));
     }
 }
